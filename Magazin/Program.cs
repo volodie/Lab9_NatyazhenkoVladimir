@@ -2,12 +2,10 @@
 using Magazin;
 using System.Text;
 
-internal class Program
+public class Program
 {
-    
     private static void Main(string[] args)
     {
-        
         var clothes1 = new Jacket() { Cost = "10000", Size = 26 };
         var clothes2 = new T_shirt() { Cost = "9100", Size = 28 };
         var clothes3 = new T_shirt() { Cost = "820", Size = 29 };
@@ -30,66 +28,65 @@ internal class Program
         var clothes20 = new T_shirt() { Cost = "9100", Size = 28 };
         var clothes21= new T_shirt() { Cost = "820", Size = 29 };
         var clothes22 = new Jacket() { Cost = "9300", Size = 30 };
-
-        Magazine list = new Magazine();
+        PrintDelegate DelegPrint = (string msg) => Console.WriteLine(msg);
+        Magazine mag = new Magazine(DelegPrint);
         CounterClothes count = new CounterClothes();
         Counter c = new Counter(20);
         c.CountReached += c_CountReachedRedColour;
         count.OnCountRaise += c.Add;
         count.OnCountRaise += (i,j) => Console.WriteLine($"Added to magazin {i} clothes. Quantitiy clothes in magazine is {j}");
 
-        PrintDelegate printDelegate = (string msg) => { Console.WriteLine(msg); };
-       
-        list.AddClothes(clothes1, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes2, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes3, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes4, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes5, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes6, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes7, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes8, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes9, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes10, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes11, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes12, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes13, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes14, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes15, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes16, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes17, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes18, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes19, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes20, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes21, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.AddClothes(clothes22, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
+        
+        mag.AddClothes(clothes1);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes2);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes3);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes4);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes5);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes6);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes7);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes8);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes9);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes10);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes11);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes12);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes13);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes14);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes15);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes16);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes17);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes18);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes19);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes20);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes21);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.AddClothes(clothes22);
+        count.Raise(1, mag.clothesMagazine.Count);
 
-        list.UpdateClothes(clothes1, "1000000", printDelegate);
-        list.DeleteClothes(clothes6, printDelegate);
-        count.Raise(1, Magazine.clothes.Count);
-        list.GetPopular( printDelegate);
-        list.GetAllClothes( printDelegate);
+        mag.UpdateClothes(clothes1, "1000000");
+        mag.DeleteClothes(clothes6);
+        count.Raise(1, mag.clothesMagazine.Count);
+        mag.GetPopular();
+        mag.GetAllClothes();
         
         static void c_CountReachedRedColour(object sender, EventArgs e)
         {
@@ -99,90 +96,36 @@ internal class Program
         }
 
     }
-        
-}
-
-public delegate void PrintDelegate(string msg);
-
-
-public class Magazine
-{
-    public static List<Clothes> clothes = new List<Clothes>();
-
-    public void AddClothes(Clothes clothes, PrintDelegate output)
+    public class Counter
     {
+        public event EventHandler CountReached;
 
-        Magazine.clothes.Add(clothes);
+        private int itemNumber;
+        private int total;
 
-        output($"Clothe added: {clothes.GetInfo()}");
-
-    }
-    public void DeleteClothes(Clothes clothes, PrintDelegate output)
-    {
-        Magazine.clothes.Remove(clothes);
-        output($"Clothe deleted: {clothes.GetInfo()}");
-    }
-
-    public void UpdateClothes(Clothes clothes, string newValue, PrintDelegate output)
-    {
-        int i = Magazine.clothes.IndexOf(clothes);
-        Magazine.clothes[i].UpdateCost(newValue);
-        output($"Clothe updated: {Magazine.clothes[i].GetInfo()}");
-    }
-
-    public void GetPopular(PrintDelegate output)
-    {
-        int[] array = new int[Magazine.clothes.Count];
-        int i = 0;
-        foreach (var ch in Magazine.clothes)
+        public Counter(int passItemNumber)
         {
-            array[i] = ch.Size;
-            i++;
+            itemNumber = passItemNumber;
         }
-        var result = array.GroupBy(x => x).OrderByDescending(x => x.Count()).FirstOrDefault().Key;
-        output($"Most popular size : {result}\n");
-    }
-    public void GetAllClothes(PrintDelegate output)
-    {
-        StringBuilder sb = new StringBuilder();
-        sb.Append("List of all clothes:\n");
-        foreach (var ch in Magazine.clothes)
+        public void Add(int x, int y)
         {
-           sb.Append(ch.GetInfo());
+            total += x;
+            if (total >= itemNumber)
+            {
+                CountReached?.Invoke(this, EventArgs.Empty);
+            }
         }
-        output(sb.ToString());
-    }
-   
-}
-class Counter
-{
-    public event EventHandler CountReached;
-
-
-    private int itemNumber;
-    private int total;
-
-    public Counter(int passItemNumber)
-    {
-        itemNumber = passItemNumber;
     }
 
-    public void Add(int x, int y)
+    public class CounterClothes
     {
-        total += x;
-        if (total >= itemNumber)
+        public event Action<int, int> OnCountRaise;
+
+        public void Raise(int i, int y)
         {
-            CountReached?.Invoke(this, EventArgs.Empty);
+            OnCountRaise(i, y);
         }
     }
 }
 
-class CounterClothes 
-{
-    public event Action<int, int> OnCountRaise;
 
-    public void Raise(int i, int y)
-    {
-        OnCountRaise(i,y);
-    }
-}

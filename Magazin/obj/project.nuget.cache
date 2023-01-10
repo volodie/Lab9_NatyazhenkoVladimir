@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DDSVIW+7D/LfTRnQkw13AgjNwFEsNrqIF0Y3RoYauypNnapdmBoVkxd/QKig17ZA9OSd95IrvlLiShMjWbeyqQ==",
+  "dgSpecHash": "Q21DLVzcwltoi+wKBL4ssTmzF/ZQKb8nmqHO2xS25NuStB/k35u6ooJXNRTMNJs1VIIT9RiDt/jbTjvk/d3Yww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\v.natyazhenko\\source\\repos\\mag\\Magazin\\Magazin.csproj",
+  "projectFilePath": "F:\\visualstudio\\rep\\mag\\Magazin\\Magazin.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1803",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://dcplvmp-sysnug1/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
-    }
-  ]
+  "logs": []
 }
